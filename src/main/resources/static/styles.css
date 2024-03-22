@@ -1,0 +1,151 @@
+html {
+    background-color: rgba(0,0,0, 0.9);
+    color: greenyellow;
+    scrollbar-width: none;
+    font-family: "Trebuchet MS"
+}
+.Friends_aside {
+    position: fixed ;
+    top: 0;
+    right: 0;
+    background-color: rgba(0,0,0, 0.3);
+    padding: 10px;
+    height: 100vh; /* Set the height of the box */
+    overflow-y: auto; /* Enable vertical scrolling */
+    width: 200px;
+    z-index: 2;
+    list-style: none;
+    /* For WebKit browsers */
+    scrollbar-width: thin;
+    scrollbar-color: greenyellow rgb(18,18,19);
+}
+/* Target the thumb of the scrollbar */
+.Friends_aside::-webkit-scrollbar {
+    width: 12px;
+}
+
+.Friends_aside::-webkit-scrollbar-thumb {
+    background-color: rgb(18,18,19); /* Color of the thumb */
+    border-radius: 6px; /* Rounded corners */
+    border: 3px solid #f5f5f5; /* Border around the thumb */
+}
+
+.Friends_aside h3 {
+    position: fixed ;
+    display: flex;
+    align-items: center; /* Vertically center-align the text */
+    justify-content: center; /* Horizontally center-align the text */
+    right: 0%;
+    top: -5%;
+    z-index: 3;
+    background-color: rgba(18,18,19, 1);
+    padding: 10px;
+    height: 10vh; /* Set the height of the box */
+    width: 200px;
+    font-family: "Trebuchet MS"
+;
+
+}
+
+.Friends_aside ul {
+    top: 10%;
+    list-style: none;
+     margin-bottom: 5px;
+}
+.Friends_aside ul li {
+    padding: 5px;
+}
+
+.Feed {
+    position: absolute;
+    top: 10%;
+    right: 40%;
+    /*background-color: #f1f1f1; /* Optional: Add background color */
+    padding: 10px;
+    height: 100vh; /* Set the height of the box */
+    /*overflow-y: auto; /* Enable vertical scrolling */
+    width: 400px;
+}
+
+.Post {
+    border: 2px solid black; /* Border style */
+    padding: 20px; /* Padding inside the box */
+    margin: 10px;
+    list-style: none;
+    z-index: -1;
+    background-color: rgba(0,40,0,0.5);
+}
+.Post .date {
+    margin-top: 0%;
+    margin-left: 70%;
+    font-size: 9px;
+    opacity: 60%;
+    color: white;
+}
+
+.Post .content {
+    font-size: 16px;
+    font-family: "Trebuchet MS";
+}
+
+.create_profile {
+    position: fixed;
+    bottom: 3%;
+    background-color: rgba(0,40,0,0.5);
+    color: greenyellow;
+    height: 10vh; /* Set the height of the box */
+    width: 70px;
+    border-radius: 5px;
+    z-index: 4;
+
+
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0%;
+    width: 100%;
+    height: 60px;
+    background-color: rgba(25, 25, 25, 1);
+    /*border-bottom: 1px solid #ccc; /* Add border to separate from content */
+    z-index: 2;
+    /* Additional styling */
+    padding: 10px 20px; /* Add padding for content */
+    box-sizing: border-box; /* Include padding in width and height */
+}
+
+.Feed h1 {
+    position: fixed;
+    top: 0%;
+    right: 48%;
+    padding: 0px;
+    z-index: 2;
+}
+.logo  {
+    width: 150px;
+    height: 150px;
+}
+
+.create_profile_form {
+position: fixed;
+    top: 20%;
+    right: 35%;
+    align-content: center;
+
+}
+.profile_information {
+    position: fixed;
+    left: 20%;
+    top: 40%;
+}
+.name {
+    position: fixed;
+    left: 20%;
+    top: 20%;
+}
+
+a {
+    color: inherit; /* Use the color inherited from its parent */
+    text-decoration: none; /* Remove underline */
+}

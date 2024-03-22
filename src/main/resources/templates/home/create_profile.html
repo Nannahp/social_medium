@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create_Profile</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+
+<div th:insert="~{home/nav :: nav}"></div>
+<div class="create_profile_form">
+    <h1>CREATE NEW PROFILE</h1>
+    <form action="/new_profile" method="post">
+
+    <label for="firstName"> First Name: </label>
+    <input type="text" id="firstName" name="firstName">
+    <br> <br>
+
+    <label for="lastName"> Last Name: </label>
+    <input type="text" id="lastName" name="lastName">
+    <br>
+    <br>
+    <label for="email"> Email: </label>
+    <input type="text" id="email" name="email">
+    <br>
+    <br>
+    <label for="dateOfBirth"> Date of Birth: </label>
+    <input type="date" id="dateOfBirth" name="dateOfBirth">
+    <br>
+    <br>
+    <label for="gender"> Gender </label>
+    <select id="gender" name="gender">
+        <option value="FEMALE">Female</option>
+        <option value="MALE">Male</option>
+        <option value="OTHER">Other</option>
+    </select>
+    <br>
+    <br>
+    <button type="submit"> Create Profile </button>
+</form>
+<form action="/" method="get">
+    <button>Cancel</button>
+</form>
+</div>
+
+</form>
+
+</body>
+</html>

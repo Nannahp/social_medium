@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HomePage</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+<div th:insert="~{home/nav :: nav}"></div>
+<div class="Feed">
+    <h1>Recent Posts</h1>
+
+    <ul>
+        <li class="Post" th:each="post : ${posts}" >
+            <p class="date" th:text="${post.createdAt}"></p>
+            <p class ="content" th:text="${post.content}" ></p>
+        </li>
+    </ul>
+</div>
+
+    <form action="/create_profile" method="get">
+        <button class="create_profile" type="submit"> Create Profile </button>
+    </form>
+<aside class="Friends_aside" >
+
+    <h3>Friends</h3>
+    <br>
+    <ul>
+        <li th:each="profile : ${profiles}">
+            <a th:href="@{/view_profile(id=${profile.profileId})}">
+                <span th:text="${profile.firstName + ' ' + profile.lastName}"></span>
+            </a>
+        </li>
+    </ul>
+</aside>
+</body>
+</html>
