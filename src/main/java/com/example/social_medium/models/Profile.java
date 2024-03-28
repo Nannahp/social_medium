@@ -1,4 +1,5 @@
 package com.example.social_medium.models;
+import java.awt.*;
 import java.time.LocalDate;
 
 public class Profile {
@@ -8,6 +9,7 @@ public class Profile {
     private String email;
     private LocalDate dateOfBirth;
     private Gender gender;
+    private String profilePicture;
 
     public Profile(){
 
@@ -66,6 +68,20 @@ public class Profile {
     }
 
     public void setGender(String gender) {
-        this.gender =  Gender.valueOf(gender.toUpperCase());
+            for (Gender g : Gender.values()) {
+                if (g.getValue().equalsIgnoreCase(gender)) {
+                    this.gender = g;
+                    return;
+                }
+            }
+            throw new IllegalArgumentException("Invalid gender: " + gender);
+        }
+
+    public String getProfilePicture() {
+        return profilePicture;
+    }
+
+    public void setProfilePicture(String profilePicture) {
+        this.profilePicture = profilePicture;
     }
 }

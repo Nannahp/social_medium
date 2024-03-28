@@ -2,19 +2,49 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Profile</title>
-  <link rel="stylesheet" type="text/css" href="styles.css">
+    <title th:text="${profile.getFirstName() +' ' + profile.getLastName()}"></title>
+    <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
+
 
 </head>
 <body>
-<h1 class="name" th:text="${profile.firstName + ' ' + profile.lastName}" ></h1>
-<div class="profile_information">
-  <img src="/icon" alt="profile_icon">
-  <p th:text="${profile.gender}"></p>
-  <img src="/dateofbirth.png" alt="date_of_birth_icon">
-  <p th:text="${profile.dateOfBirth}"></p>
-  <img src="/mail" alt="mail_icon">
-  <p th:text="${profile.email}"></p>
+<div th:insert="~{home/nav :: nav}"></div>
+
+<img class="profile_picture" th:src="@{/profile.png}" alt="Profile Picture">
+
+<h1 class="name" th:text="${profile.firstName + ' ' + profile.lastName}"></h1>
+<div class="profile_container">
+    <div class="profile_info">
+        <img th:src="@{/icon.png}" alt="profile_icon">
+        <p th:text="${profile.gender}"></p>
+    </div>
+    <div class="profile_info">
+        <img th:src="@{/dateofbirth.png}" alt="date_of_birth_icon">
+        <p th:text="${profile.dateOfBirth}"></p>
+    </div>
+    <div class="profile_info">
+        <img th:src="@{/mail.png}" alt="mail_icon">
+        <p th:text="${profile.email}"></p>
+    </div>
+
+</div>
+
+<div class="timeline">
+    <h2>Posts</h2>
+    <ul>
+        <li class="post" th:each="post : ${posts}">
+           <div class="post_header">
+            <p class="author_name" th:text="${ '@' + profile.getFirstName() + ' ' + profile.getLastName()}"></p>
+            <p class="post_date" th:text="${post.createdAt}"></p>
+           </div>
+            <p class="post_content" th:text="${post.content}"></p>
+            <th:block th:if="${post.tags != null}">
+                <div class="post_tags">
+                    <p class="post_tag"  th:each="tag : ${post.tags}"  th:text="${'#' + tag}"> </p>
+                </div>
+            </th:block>
+        </li>
+    </ul>
 </div>
 </body>
 </html>

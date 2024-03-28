@@ -16,4 +16,9 @@ public class PostService {
         return postRepository.getPosts();
     }
 
+    public List<Post> getPostByUserId(int profileId) {
+        return postRepository.getPostByUserId(profileId);
+    }
+
+
 }

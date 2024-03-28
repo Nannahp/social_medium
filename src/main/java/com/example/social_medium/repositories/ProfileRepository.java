@@ -17,20 +17,22 @@ public class ProfileRepository {
     @Autowired
     JdbcTemplate jdbcTemplate;
 
-    public List<Profile> getProfiles(){
+    public List<Profile> getProfiles() {
         String query = "SELECT * FROM profile";
         RowMapper<Profile> rowMapper = new BeanPropertyRowMapper<>(Profile.class);
-        return jdbcTemplate.query(query,rowMapper);
+        return jdbcTemplate.query(query, rowMapper);
     }
 
     public void createProfile(String firstName, String lastName, String email, LocalDate dateOfBirth, Gender gender) {
         String query = "INSERT INTO profile(firstname, lastname, email, date_of_birth, gender) VALUES (?,?,?,?,?)";
         jdbcTemplate.update(query, firstName, lastName, email, dateOfBirth, gender.toString());
     }
+
     public Profile getProfile(int profileId) {
-        String query ="SELECT * FROM profile WHERE profile_id = ?;";
+        String query = "SELECT * FROM profile WHERE profile_id = ?;";
         RowMapper<Profile> rowMapper = new BeanPropertyRowMapper(Profile.class);
         return jdbcTemplate.queryForObject(query, rowMapper, profileId);
     }
-
 }
+
+

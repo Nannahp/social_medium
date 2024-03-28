@@ -11,24 +11,40 @@
     <h1>Recent Posts</h1>
 
     <ul>
-        <li class="Post" th:each="post : ${posts}" >
+        <li class="Post" th:each="post : ${posts}">
+            <th:block th:if="${post.getProfile() != null}">
+                <a th:href="@{'/profile/' + ${post.getProfile().getProfileId()}}">
+                    <p class="profile_tag"
+                       th:text="${'@' + post.getProfile().getFirstName() + ' ' + post.getProfile().getLastName()}"></p>
+                </a>
+            </th:block>
+            <th:block th:if="${post.getProfile() == null}">
+                <p class="profile_tag">Unknown</p>
+            </th:block>
             <p class="date" th:text="${post.createdAt}"></p>
-            <p class ="content" th:text="${post.content}" ></p>
+            <p class="content" th:text="${post.content}"></p>
+            <th:block th:if="${post.tags != null}">
+                <div class="tags">
+                <p class="tag"  th:each="tag : ${post.tags}"  th:text="${'#' + tag}"> </p>
+                </div>
+            </th:block>
         </li>
     </ul>
 </div>
 
-    <form action="/create_profile" method="get">
-        <button class="create_profile" type="submit"> Create Profile </button>
-    </form>
-<aside class="Friends_aside" >
+
+<form action="/create_profile" method="get">
+    <button class="create_profile" type="submit"> Create Profile</button>
+</form>
+
+<aside class="Friends_aside">
 
     <h3>Friends</h3>
     <br>
     <ul>
         <li th:each="profile : ${profiles}">
-            <a th:href="@{/view_profile(id=${profile.profileId})}">
-                <span th:text="${profile.firstName + ' ' + profile.lastName}"></span>
+            <a th:href="@{'/profile/' + ${profile.profileId}}">
+                <p th:text="${profile.firstName + ' ' + profile.lastName}"></p>
             </a>
         </li>
     </ul>

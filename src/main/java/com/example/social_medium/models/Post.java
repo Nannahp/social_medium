@@ -1,11 +1,16 @@
 package com.example.social_medium.models;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
 public class Post {
     private int postId;
     private int profileID;
     private String title;
     private String content;
     private LocalDateTime createdAt;
+    private Profile profile;
+    private List<String> tags;
 
     public Post(){
 
@@ -57,5 +62,21 @@ public class Post {
 
     public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public Profile getProfile() {
+        return profile;
+    }
+
+    public void setProfile(Profile profile) {
+        this.profile = profile;
+    }
+
+    public List<String> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<String> tags) {
+        this.tags = tags;
     }
 }

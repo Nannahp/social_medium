@@ -53,7 +53,7 @@ html {
      margin-bottom: 5px;
 }
 .Friends_aside ul li {
-    padding: 5px;
+    padding: 0px;
 }
 
 .Feed {
@@ -74,11 +74,19 @@ html {
     list-style: none;
     z-index: -1;
     background-color: rgba(0,40,0,0.5);
+
 }
-.Post .date {
-    margin-top: 0%;
-    margin-left: 70%;
+.Post .profile_tag, .Post .date {
+    display: inline; /* Make both elements inline */
     font-size: 9px;
+}
+
+.Post .profile_tag {
+    margin-right: 50%; /* Add some margin between profile tag and date */
+    color: chartreuse;
+}
+
+.Post .date {
     opacity: 60%;
     color: white;
 }
@@ -86,6 +94,19 @@ html {
 .Post .content {
     font-size: 16px;
     font-family: "Trebuchet MS";
+}
+
+.Post .tags{
+    display: flex;
+    flex-direction: row;
+
+}
+.Post .tag {
+    display: flex;
+    margin-right: 4%;
+    font-size: 9px;
+    color: white;
+    opacity: 60%;
 }
 
 .create_profile {
@@ -123,8 +144,8 @@ html {
     z-index: 2;
 }
 .logo  {
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
 }
 
 .create_profile_form {
@@ -148,4 +169,116 @@ position: fixed;
 a {
     color: inherit; /* Use the color inherited from its parent */
     text-decoration: none; /* Remove underline */
+}
+
+.timeline {
+    position: absolute;
+    top: 10%;
+    right: 15%;
+    padding: 10px;
+    height: 100vh;
+    /*overflow-y: auto; /* Enable vertical scrolling */
+    width: 400px;
+}
+.timeline h2 {
+    position: fixed;
+    top: 0%;
+    right: 29%;
+    padding: 0px;
+    z-index: 2;
+}
+
+.profile_picture {
+    position: fixed;
+    top: 8%;
+    left: 15%;
+    width: 250px;
+    height: 250px;
+    background-color: greenyellow;
+    border-radius: 148px;
+    border-style: dashed;
+    z-index: 3;
+
+}
+
+.name {
+    position: fixed;
+    font-size: 26px;
+    color: greenyellow;
+    top: 50%;
+    left: 18%;
+
+}
+
+.profile_container {
+    position: fixed;
+    top: 60%;
+    left: 18%;
+    color: greenyellow;
+    display: flex;
+    flex-direction: column;
+}
+.profile_info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; /* Adjust spacing between items */
+}
+
+.profile_container img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    background-color: greenyellow;
+    border-style: dashed;
+    border-radius: 80px;
+}
+
+.post {
+    border: 2px solid black; /* Border style */
+    padding: 20px; /* Padding inside the box */
+    margin: 10px;
+    list-style: none;
+    z-index: -1;
+    background-color: rgba(0,40,0,0.5);
+    display: flex;
+    flex-direction: column;
+}
+
+.post_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.author_name {
+    margin: 0;
+    color: chartreuse;
+    font-size: 14px;
+}
+.post_date {
+    margin: 0;
+    opacity: 60%;
+    color: white;
+    font-size: 11px;
+}
+.post_content {
+    margin-top: 10px;
+    font-size: 16px;
+    font-family: "Trebuchet MS";
+}
+.post_tags {
+    display: flex;
+    align-items: flex-start;
+    font-size: 9px;
+    color: white;
+    opacity: 60%;
+    flex-direction: row;
+}
+
+
+.post_tag {
+    display: flex;
+    margin-right: 4%;
+    font-size: 11px;
+    color: white;
+    opacity: 60%;
 }

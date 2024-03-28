@@ -27,11 +27,7 @@ public class ProfileController {
         return ("redirect:/");
     }
 
-    @GetMapping("/view_profile")
-    public String viewProfile(@RequestParam int profileId, Model model) {
-        model.addAttribute("profile", profileService.getProfile(profileId));
-        return "home/profile";
-    }
+
 
 
 

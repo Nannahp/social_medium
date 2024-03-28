@@ -24,4 +24,6 @@ public class ProfileService {
     public Profile getProfile(int profileId) {
         return profileRepository.getProfile(profileId);
     }
+
+
 }
