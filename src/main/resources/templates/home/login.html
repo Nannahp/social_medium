@@ -6,8 +6,28 @@
   <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
+
 <div th:insert="~{home/nav :: nav}"></div>
 
+<h1>LOG IN</h1>
 
+<div class="login-container">
+  <div class="login-info">
+    <label for="firstname">First name</label>
+    <input type="text" id="firstname" value="firstname">
+  </div>
+  <div class="login-info">
+    <label for="lastname"></label>
+    <input type="text" id="lastname" value="lastname">
+  </div>
+  <input type="submit" value="Login">
+</div>
+
+<div class="join">
+  <form action="/create_profile" method="get">
+    <button class="create_profile" type="submit"> Create Profile </button>
+  </form>
+
+</div>
 </body>
 </html>

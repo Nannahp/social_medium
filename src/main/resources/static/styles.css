@@ -109,18 +109,22 @@ html {
     opacity: 60%;
 }
 
+/*
 .create_profile {
     position: fixed;
     bottom: 3%;
     background-color: rgba(0,40,0,0.5);
     color: greenyellow;
-    height: 10vh; /* Set the height of the box */
+    height: 10vh;
     width: 70px;
     border-radius: 5px;
     z-index: 4;
-
+}
+*/
+.create_profile {
 
 }
+
 
 .header {
     position: fixed;
@@ -281,4 +285,15 @@ a {
     font-size: 11px;
     color: white;
     opacity: 60%;
+}
+
+.login-join {
+    position: fixed;
+    bottom: 3%;
+    background-color: rgba(0,40,0,0.5);
+    color: greenyellow;
+    height: 10vh;
+    width: 70px;
+    border-radius: 5px;
+    z-index: 4;
 }

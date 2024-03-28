@@ -37,4 +37,11 @@ public class HomeController {
            return "home/profile_not_found";
        }
     }
+
+    @GetMapping("/login")
+    public String login(){
+        return "home/login";
+    }
+
+
 }
