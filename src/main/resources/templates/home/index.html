@@ -32,9 +32,15 @@
     </ul>
 </div>
 
-<form action="/login" method="get">
-    <button class="login-join" type="submit"> Login/join</button>
+<form th:if="${loggedIn}" action="/create_new_post" method="get">
+    <button class="index-button" type="submit"> + </button>
 </form>
+
+<form th:if="${loggedIn != true }" action="/login" method="get">
+    <button class="index-button" type="submit"> Login/join</button>
+</form>
+
+
 
 <aside class="Friends_aside">
 

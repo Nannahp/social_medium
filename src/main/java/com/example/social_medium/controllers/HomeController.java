@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class HomeController {
@@ -17,11 +19,15 @@ public class HomeController {
     private PostService postService;
 
     @GetMapping("/")
-    public String home(Model model){
+    public String home( Model model){
         model.addAttribute("profiles", profileService.getProfiles() );
         model.addAttribute("posts", postService.getPosts() );
         model.addAttribute("profileService", profileService);
-
+        Boolean loggedIn = (Boolean) model.getAttribute("loggedIn");
+        System.out.println(loggedIn);
+        if (loggedIn != null && loggedIn){
+        model.addAttribute("loggedIn", true);}
+        else model.addAttribute("loggedIn", false);
         return "home/index";
     }
 
