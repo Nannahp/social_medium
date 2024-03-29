@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
@@ -9,25 +9,45 @@
 
 <div th:insert="~{home/nav :: nav}"></div>
 
+<div class="login-container">
 <h1>LOG IN</h1>
 
-<div class="login-container">
+  <p th:text="${message}"></p>
+  <span class="login-margin" th:if="${message != 'Login successful!'}">
+
+  <form action="/validate" method="post" onsubmit="return validateForm()">
   <div class="login-info">
     <label for="firstname">First name</label>
-    <input type="text" id="firstname" value="firstname">
+    <input type="text" id="firstname" name="firstname">
   </div>
   <div class="login-info">
-    <label for="lastname"></label>
-    <input type="text" id="lastname" value="lastname">
+    <label for="lastname">Last name</label>
+    <input type="text" id="lastname" name="lastname">
   </div>
-  <input type="submit" value="Login">
-</div>
 
-<div class="join">
-  <form action="/create_profile" method="get">
-    <button class="create_profile" type="submit"> Create Profile </button>
+  <input  class="login-button" type="submit" value="Login">
   </form>
 
+
+<p style="font-style: italic">Or</p>
+
+  <form action="/create_profile" method="get">
+    <button class="button" type="submit"> Create Profile </button>
+  </form>
+    </span>
 </div>
+
+
+<script>
+  function validateForm() {
+    // Check if all required fields are filled
+    if (!document.getElementById('firstname').value ||
+            !document.getElementById('lastname').value) {
+      alert("Please fill out all required fields.");
+      return false; // Prevent form submission
+    }
+    return true; // Allow form submission if all fields are filled
+  }
+</script>
 </body>
 </html>
